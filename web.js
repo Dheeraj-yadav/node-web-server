@@ -2,6 +2,8 @@ const express = require('express');
 const fs = require('fs');
 //handle bars module
 const hbs = require('hbs');
+//to deploy to heroku port need to be changed to environment
+const port = process.env.PORT || 3000;
 //variable app and calling express
 var app = express();
 //to introduce partials by giving its directory
@@ -53,6 +55,6 @@ app.get('/bad', (req,res) => {
 });
 });
 //to get result on port 3000 with a message while it loads
-app.listen(3000,() => {
-  console.log('server is up on port 3000');
+app.listen(port,() => {
+  console.log(`server is up on port ${port}`);
 });
